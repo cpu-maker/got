@@ -6,17 +6,35 @@
 </head>
 <body>
 
-<div id="ui">
-  <div id="health"></div>
-  <div id="questLog"></div>
-  <canvas id="minimap" width="200" height="200"></canvas>
-</div>
-
 <canvas id="gameCanvas" width="1280" height="720"></canvas>
 
-<script src="engine.js"></script>
-<script src="world.js"></script>
-<script src="quests.js"></script>
-<script src="script.js"></script>
+<script src="engine/input.js"></script>
+<script src="engine/camera.js"></script>
+<script src="engine/lighting.js"></script>
+<script src="engine/engine.js"></script>
+
+<script src="world/worldgen.js"></script>
+<script src="world/dungeon.js"></script>
+<script src="world/interiors.js"></script>
+
+<script src="entities/player.js"></script>
+<script src="entities/enemy.js"></script>
+<script src="entities/boss.js"></script>
+<script src="entities/npc.js"></script>
+<script src="entities/projectile.js"></script>
+
+<script src="systems/combat.js"></script>
+<script src="systems/inventory.js"></script>
+<script src="systems/skills.js"></script>
+<script src="systems/quests.js"></script>
+<script src="systems/dialogue.js"></script>
+<script src="systems/shop.js"></script>
+<script src="systems/save.js"></script>
+
+<script src="ui/minimap.js"></script>
+<script src="ui/hud.js"></script>
+
+<script src="main.js"></script>
+
 </body>
 </html>
