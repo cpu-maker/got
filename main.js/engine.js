@@ -1,29 +1,25 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-const WORLD_SIZE = 3000;
+const TILE = 48;
+const WORLD_TILES = 200;
+const WORLD_SIZE = WORLD_TILES * TILE;
 
-let camera = { x: 0, y: 0 };
-let keys = {};
+let gameObjects = [];
+let player;
 
-document.addEventListener("keydown", e => keys[e.key] = true);
-document.addEventListener("keyup", e => keys[e.key] = false);
+function gameLoop() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-class Entity {
-  constructor(x, y, w, h) {
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-  }
+    updateWorld();
+    updateEntities();
 
-  draw(color) {
-    ctx.fillStyle = color;
-    ctx.fillRect(this.x - camera.x, this.y - camera.y, this.w, this.h);
-  }
-}
+    renderWorld();
+    renderEntities();
 
-function updateCamera(player) {
-  camera.x = player.x - canvas.width / 2;
-  camera.y = player.y - canvas.height / 2;
+    renderLighting();
+    renderHUD();
+    renderMiniMap();
+
+    requestAnimationFrame(gameLoop);
 }
