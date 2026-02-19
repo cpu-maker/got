@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Shadow Frontier</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Eclipse Realms</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="ui">
-    <div id="healthBar"></div>
-    <div id="staminaBar"></div>
-    <div id="inventory"></div>
+  <div id="health"></div>
+  <div id="questLog"></div>
+  <canvas id="minimap" width="200" height="200"></canvas>
 </div>
 
 <canvas id="gameCanvas" width="1280" height="720"></canvas>
 
+<script src="engine.js"></script>
+<script src="world.js"></script>
+<script src="quests.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
