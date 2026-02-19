@@ -1,30 +1,17 @@
-let tiles = [];
-let buildings = [];
+let worldMap = [];
 
 function generateWorld() {
-  for (let x = 0; x < WORLD_SIZE; x += 100) {
-    for (let y = 0; y < WORLD_SIZE; y += 100) {
-      if (Math.random() < 0.1) {
-        tiles.push({ x, y, type: "tree" });
-      }
+    for (let y = 0; y < WORLD_TILES; y++) {
+        let row = [];
+        for (let x = 0; x < WORLD_TILES; x++) {
+
+            let r = Math.random();
+
+            if (r < 0.1) row.push("water");
+            else if (r < 0.2) row.push("forest");
+            else row.push("grass");
+
+        }
+        worldMap.push(row);
     }
-  }
-
-  // Town center
-  buildings.push({ x: 1200, y: 1200, w: 200, h: 200, interior: true });
-}
-
-function drawWorld() {
-  ctx.fillStyle = "#1e4d2b";
-  ctx.fillRect(-camera.x, -camera.y, WORLD_SIZE, WORLD_SIZE);
-
-  tiles.forEach(t => {
-    ctx.fillStyle = "darkgreen";
-    ctx.fillRect(t.x - camera.x, t.y - camera.y, 80, 80);
-  });
-
-  buildings.forEach(b => {
-    ctx.fillStyle = "brown";
-    ctx.fillRect(b.x - camera.x, b.y - camera.y, b.w, b.h);
-  });
 }
